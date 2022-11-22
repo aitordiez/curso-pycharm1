@@ -1,0 +1,5 @@
+01:19:56 PM: INFO [logging_Bar.py:16] ('name:', 'logging_Bar')
+01:19:56 PM: INFO [logging_Bar.py:16] ('El camarero está poniendo el café',)
+01:19:56 PM: DEBUG [logging_Bar.py:12] Taza de café 40 creada a Cafe solo grados
+01:19:56 PM: INFO [logging_Bar.py:16] ('El cliente Cliente1 se está tomado la taza de cafe',)
+01:19:56 PM: INFO [logging_Bar.py:16] ('El cafe se lo toma a gusto',)
