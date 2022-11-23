@@ -1,0 +1,2 @@
+
+AFINACIONES = [True,False]
