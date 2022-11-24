@@ -4,9 +4,13 @@ try:
     conexion = get_mysql_conection()
     with conexion:
         with conexion.cursor() as cursor:
-            sentencia = 'UPDATE persona SET email=%s WHERE idPersonas=%s'
-            valores = ('hectorfernandez@gmail.com', 1)
-            valores1 = ('franciscohernandez@gmail.com', 3)
+            sentencia_select = "SELECT idPersonas FROM persona WHERE email NOT LIKE '%gmail.com%'"
+            resultado = cursor.execute(sentencia_select)
+            registros = cursor.fetchall()
+            print(registros)
+            sentencia = "UPDATE persona SET email=%s WHERE idPersonas=%s"
+            valores = ('hectorfernandez@gmail.com',registros[0])
+            valores1 = ('franciscohernandez@gmail.com',registros[1])
             cursor.execute(sentencia, valores)
             cursor.execute(sentencia, valores1)
             conexion.commit()
