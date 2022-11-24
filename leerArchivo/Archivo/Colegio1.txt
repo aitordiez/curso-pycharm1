@@ -1,5 +1,0 @@
-Colegio1|Nombre1|Apellidos1|1111A|Matemáticas;Lengua
-Colegio1|Nombre2|Apellidos2|2222B|Matemáticas;Física
-Colegio1|Nombre4|Apellidos4|4444D|Matemáticas;Física;Química
-Colegio1|Nombre9|Apellidos9|9999I|Geografía
-Colegio1|Nombre11|Apellidos11|1111K|Matemáticas;Química

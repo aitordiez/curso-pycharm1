@@ -1,3 +1,0 @@
-Colegio3|Nombre3|Apellidos3|3333C|Historia;Lengua
-Colegio3|Nombre7|Apellidos7|7777G|Gimnasia
-Colegio3|Nombre10|Apellidos10|1010J|Geografís;Historia
