@@ -20,12 +20,16 @@ class Colegio:
 
 
     def recoger_datos(self):
+        colegios_alumno = []
         try:
             log.debug("Se abre el archivo")
             archivo_leer = open("./Archivo/alumnos-colegio.txt","r",encoding="UTF-8")
             for leer in archivo_leer.readlines():
                 log.debug("lineas que contiene el archivo ",leer)
-                if not leer.find(self.nombre_colegio):
+                datos = leer.split("|;")
+                colegios_alumno = [datos]
+                print(colegios_alumno)
+                if leer.split("|") and leer.split(";"):
                     log.debug("Abrimos los archivos donde se van a añadir las lineas")
                     archivo_escribir = open("./Archivo/"+self.nombre_colegio+".txt","a",encoding="UTF-8")
                     log.debug("Escribimos las lineas ",leer, " en cada fichero que corresponda ",archivo_escribir)

@@ -1,4 +1,3 @@
-import sys
 import MySQLdb
 import psycopg2
 import utils.config_basedatos as config

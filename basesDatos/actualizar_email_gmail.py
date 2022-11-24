@@ -1,5 +1,5 @@
 from utils.conexion import get_mysql_conection
-from datetime import datetime
+
 try:
     conexion = get_mysql_conection()
     with conexion:
