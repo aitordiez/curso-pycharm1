@@ -4,11 +4,56 @@
 # Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
 import utils.logging_archivos as log
 from Excepcion.excepciones import ArchivoException
+class Alumno:
+    def __init__(self, nombre, apellidos, dni, asignaturas):
+        self._nombre = nombre
+        self._apellidos = apellidos
+        self._dni = dni
+        self._asignaturas = asignaturas
+
+    @property
+    def nombre(self):
+        return self._nombre
+
+    @nombre.setter
+    def nombre(self, nombre):
+        self._nombre = nombre
+
+    @property
+    def apellidos(self):
+        return self._apellidos
+
+    @apellidos.setter
+    def apellidos(self, apellidos):
+        self._apellidos = apellidos
+
+    @property
+    def dni(self):
+        return self._dni
+
+    @dni.setter
+    def dni(self, dni):
+        self._dni = dni
+
+    @property
+    def asignaturas(self):
+        return self._asignaturas
+
+    @asignaturas.setter
+    def asignaturas(self, asignaturas):
+        self._asignaturas = asignaturas
+
+    def addAsignatura(self, asignatura):
+        self.asignaturas.append(asignatura)
+
+    def __str__(self):
+        return f"{self.nombre}|{self.apellidos}|{self.dni}|"+";".join(self.asignaturas)
 
 class Colegio:
 
     def __init__(self,nombre_colegio):
         self.__nombre_colegio = nombre_colegio
+        self.lista_alumnos = []
 
     @property
     def nombre_colegio(self):
@@ -20,27 +65,15 @@ class Colegio:
 
 
     def recoger_datos(self):
-        colegios_alumno = []
-        try:
-            log.debug("Se abre el archivo")
-            archivo_leer = open("./Archivo/alumnos-colegio.txt","r",encoding="UTF-8")
-            for leer in archivo_leer.readlines():
-                log.debug("lineas que contiene el archivo ",leer)
-                datos = leer.split("|;")
-                colegios_alumno = [datos]
-                print(colegios_alumno)
-                if leer.split("|") and leer.split(";"):
-                    log.debug("Abrimos los archivos donde se van a añadir las lineas")
-                    archivo_escribir = open("./Archivo/"+self.nombre_colegio+".txt","a",encoding="UTF-8")
-                    log.debug("Escribimos las lineas ",leer, " en cada fichero que corresponda ",archivo_escribir)
-                    archivo_escribir.write(leer)
-        except ArchivoException as e:
-            log.error("Excepcion", e)
-        finally:
-            archivo_escribir.close()
-            archivo_leer.close()
-            log.debug("cerramos los archivos ")
-
+        log.debug("Se abre el archivo")
+        archivo_leer = open("./Archivo/alumnos-colegio.txt","r",encoding="UTF-8")
+        for leer in archivo_leer.readlines():
+           log.debug("lineas que contiene el archivo ",leer)
+           datos = leer.split("|")
+           if not datos[0].find(self.nombre_colegio):
+            alumno = Alumno(datos[1],datos[2],datos[3],datos[4].split(";"))
+            archivo_escribir = open("./Archivo/" + self.nombre_colegio + ".txt", "a", encoding="UTF-8")
+            archivo_escribir.write(str(alumno))
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
     log.debug("Empezando...")
